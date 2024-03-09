@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Servicio;
 
 namespace Catalogo_Comercial
 {
@@ -23,6 +25,7 @@ namespace Catalogo_Comercial
             ElectrodomesticoSERVICE service = new ElectrodomesticoSERVICE();
             listaElectrodomestico = service.listar();
             dgvCatalogo.DataSource = listaElectrodomestico;
+            dgvCatalogo.Columns["ImagenUrl"].Visible = false;
             cargarImagen(listaElectrodomestico[0].ImagenUrl);
 
 
@@ -32,6 +35,7 @@ namespace Catalogo_Comercial
         {
             Electrodomestico seleccionado = (Electrodomestico)dgvCatalogo.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.ImagenUrl);    
+
 
         }
 

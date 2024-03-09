@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Dominio;
 
-namespace Catalogo_Comercial
+namespace Servicio
 {
-    internal class ElectrodomesticoSERVICE
+    public class ElectrodomesticoSERVICE
     {
         public List<Electrodomestico> listar()
         {
@@ -20,7 +21,7 @@ namespace Catalogo_Comercial
             {
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_DB; integrated security=true;";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Codigo,Nombre,Descripcion,ImagenUrl from ARTICULOS";
+                comando.CommandText = "Select Codigo,Nombre,A.Descripcion,ImagenUrl, M.Descripcion Marca, C.Descripcion Categoria From ARTICULOS A, MARCAS M, CATEGORIAS C Where M.Id=A.IdMarca AND C.Id=A.IdCategoria";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -33,6 +34,10 @@ namespace Catalogo_Comercial
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.ImagenUrl = (string)lector["ImagenUrl"];
+                    aux.Marcas = new Marca();
+                    aux.Marcas.Descripcion = (string)lector["Marca"];
+                    aux.Categorias=new Categoria();
+                    aux.Categorias.Descripcion=(string)lector["Categoria"];
 
                     lista.Add(aux);
                 }
