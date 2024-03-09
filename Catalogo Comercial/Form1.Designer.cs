@@ -28,13 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvCatalogo = new System.Windows.Forms.DataGridView();
+            this.pbElectrodomestico = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbElectrodomestico)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvCatalogo
+            // 
+            this.dgvCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalogo.Location = new System.Drawing.Point(12, 21);
+            this.dgvCatalogo.Name = "dgvCatalogo";
+            this.dgvCatalogo.Size = new System.Drawing.Size(583, 345);
+            this.dgvCatalogo.TabIndex = 0;
+            this.dgvCatalogo.SelectionChanged += new System.EventHandler(this.dgvCatalogo_SelectionChanged);
+            // 
+            // pbElectrodomestico
+            // 
+            this.pbElectrodomestico.Location = new System.Drawing.Point(626, 21);
+            this.pbElectrodomestico.Name = "pbElectrodomestico";
+            this.pbElectrodomestico.Size = new System.Drawing.Size(257, 345);
+            this.pbElectrodomestico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbElectrodomestico.TabIndex = 1;
+            this.pbElectrodomestico.TabStop = false;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(939, 432);
+            this.Controls.Add(this.pbElectrodomestico);
+            this.Controls.Add(this.dgvCatalogo);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbElectrodomestico)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvCatalogo;
+        private System.Windows.Forms.PictureBox pbElectrodomestico;
     }
 }
 
