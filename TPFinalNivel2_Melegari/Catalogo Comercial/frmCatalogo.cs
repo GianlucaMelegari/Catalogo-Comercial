@@ -22,12 +22,7 @@ namespace Catalogo_Comercial
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ElectrodomesticoSERVICE service = new ElectrodomesticoSERVICE();
-            listaElectrodomestico = service.listar();
-            dgvCatalogo.DataSource = listaElectrodomestico;
-            dgvCatalogo.Columns["ImagenUrl"].Visible = false;
-            cargarImagen(listaElectrodomestico[0].ImagenUrl);
-
+            cargar();
 
         }
 
@@ -36,6 +31,27 @@ namespace Catalogo_Comercial
             Electrodomestico seleccionado = (Electrodomestico)dgvCatalogo.CurrentRow.DataBoundItem;
             cargarImagen(seleccionado.ImagenUrl);    
 
+        }
+
+        private void cargar()
+        {
+            ElectrodomesticoSERVICE service = new ElectrodomesticoSERVICE();
+
+            try
+            {
+                listaElectrodomestico = service.listar();
+                dgvCatalogo.DataSource = listaElectrodomestico;
+                dgvCatalogo.Columns["ImagenUrl"].Visible = false;
+                dgvCatalogo.Columns["Id"].Visible = false;
+
+                cargarImagen(listaElectrodomestico[0].ImagenUrl);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
 
         }
 
@@ -57,6 +73,17 @@ namespace Catalogo_Comercial
         {
             frmAltaElectrodomestico alta = new frmAltaElectrodomestico();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Electrodomestico seleccionado;
+            seleccionado = (Electrodomestico)dgvCatalogo.CurrentRow.DataBoundItem;
+
+            frmAltaElectrodomestico modificar = new frmAltaElectrodomestico(seleccionado);
+            modificar.ShowDialog();
+            cargar();
         }
     }
 }

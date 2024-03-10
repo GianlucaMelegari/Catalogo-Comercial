@@ -31,6 +31,7 @@
             this.dgvCatalogo = new System.Windows.Forms.DataGridView();
             this.pbElectrodomestico = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbElectrodomestico)).BeginInit();
             this.SuspendLayout();
@@ -38,15 +39,18 @@
             // dgvCatalogo
             // 
             this.dgvCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCatalogo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCatalogo.Location = new System.Drawing.Point(12, 21);
+            this.dgvCatalogo.MultiSelect = false;
             this.dgvCatalogo.Name = "dgvCatalogo";
-            this.dgvCatalogo.Size = new System.Drawing.Size(583, 345);
+            this.dgvCatalogo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCatalogo.Size = new System.Drawing.Size(671, 345);
             this.dgvCatalogo.TabIndex = 0;
             this.dgvCatalogo.SelectionChanged += new System.EventHandler(this.dgvCatalogo_SelectionChanged);
             // 
             // pbElectrodomestico
             // 
-            this.pbElectrodomestico.Location = new System.Drawing.Point(626, 21);
+            this.pbElectrodomestico.Location = new System.Drawing.Point(735, 21);
             this.pbElectrodomestico.Name = "pbElectrodomestico";
             this.pbElectrodomestico.Size = new System.Drawing.Size(257, 345);
             this.pbElectrodomestico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,11 +67,22 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(93, 397);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // frmCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 432);
+            this.ClientSize = new System.Drawing.Size(1085, 432);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbElectrodomestico);
             this.Controls.Add(this.dgvCatalogo);
@@ -85,6 +100,7 @@
         private System.Windows.Forms.DataGridView dgvCatalogo;
         private System.Windows.Forms.PictureBox pbElectrodomestico;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
 
