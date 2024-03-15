@@ -70,5 +70,10 @@ namespace Service
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
+        public void agregarParametro(string nombre, object valor)
+        {
+            SqlParameter parametro = new SqlParameter(nombre, valor ?? DBNull.Value);
+            comando.Parameters.Add(parametro);
+        }
     }
 }

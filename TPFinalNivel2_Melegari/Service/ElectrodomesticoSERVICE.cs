@@ -142,9 +142,12 @@ namespace Servicio
         {
             List<Electrodomestico> lista = new List<Electrodomestico>();
             AccesoDatos datos = new AccesoDatos();
+            
+
             try
             {
                 string consulta = "Select Codigo,Nombre,A.Descripcion,ImagenUrl, M.Descripcion Marca, C.Descripcion Categoria, Precio, A.IdMarca, A.IdCategoria, A.Id From ARTICULOS A, MARCAS M, CATEGORIAS C Where M.Id = A.IdMarca AND C.Id = A.IdCategoria AND ";
+                
                 if (campo == "Precio")
                 {
                     switch (criterio)

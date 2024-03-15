@@ -11,12 +11,15 @@ using System.Windows.Forms;
 using Dominio;
 using Servicio;
 using Service;
+using System.IO;
+using System.Configuration;
 
 namespace Catalogo_Comercial
 {
     public partial class frmAltaElectrodomestico : Form
     {
         private Electrodomestico electrodomestico = null;
+        private OpenFileDialog archivo = null;
         public frmAltaElectrodomestico()
         {
             InitializeComponent();
@@ -61,6 +64,10 @@ namespace Catalogo_Comercial
                     MessageBox.Show("Agregado exitosamente!");
                 }
 
+                //Guardo img si la levanto localmente
+                if(archivo!=null && (txtImagenUrl.Text.ToUpper().Contains("HTTP")))
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+                
 
                 Close();   
             }
@@ -123,5 +130,20 @@ namespace Catalogo_Comercial
             }
         }
 
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+
+            if (archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtImagenUrl.Text = archivo.FileName;
+                cargarImagen(archivo.FileName);
+
+                //guardar img
+                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+            } 
+
+        }
     }
 }

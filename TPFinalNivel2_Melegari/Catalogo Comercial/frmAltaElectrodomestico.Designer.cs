@@ -45,6 +45,7 @@
             this.lblImagenUrl = new System.Windows.Forms.Label();
             this.txtImagenUrl = new System.Windows.Forms.TextBox();
             this.pbElectrodomestico = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbElectrodomestico)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,18 +188,29 @@
             // 
             // pbElectrodomestico
             // 
-            this.pbElectrodomestico.Location = new System.Drawing.Point(304, 26);
+            this.pbElectrodomestico.Location = new System.Drawing.Point(345, 26);
             this.pbElectrodomestico.Name = "pbElectrodomestico";
-            this.pbElectrodomestico.Size = new System.Drawing.Size(221, 291);
+            this.pbElectrodomestico.Size = new System.Drawing.Size(237, 291);
             this.pbElectrodomestico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbElectrodomestico.TabIndex = 16;
             this.pbElectrodomestico.TabStop = false;
+            // 
+            // btnAgregarImg
+            // 
+            this.btnAgregarImg.Location = new System.Drawing.Point(216, 130);
+            this.btnAgregarImg.Name = "btnAgregarImg";
+            this.btnAgregarImg.Size = new System.Drawing.Size(42, 20);
+            this.btnAgregarImg.TabIndex = 17;
+            this.btnAgregarImg.Text = "+";
+            this.btnAgregarImg.UseVisualStyleBackColor = true;
+            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
             // 
             // frmAltaElectrodomestico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 372);
+            this.ClientSize = new System.Drawing.Size(636, 372);
+            this.Controls.Add(this.btnAgregarImg);
             this.Controls.Add(this.pbElectrodomestico);
             this.Controls.Add(this.txtImagenUrl);
             this.Controls.Add(this.lblImagenUrl);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.Label lblImagenUrl;
         private System.Windows.Forms.TextBox txtImagenUrl;
         private System.Windows.Forms.PictureBox pbElectrodomestico;
+        private System.Windows.Forms.Button btnAgregarImg;
     }
 }
